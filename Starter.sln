@@ -36,13 +36,9 @@ Global
 		{A12987FB-B625-4502-9D11-89F5A29F7E51}.AppStore|iPhone.ActiveCfg = Release|Any CPU
 		{A12987FB-B625-4502-9D11-89F5A29F7E51}.AppStore|iPhone.Build.0 = Release|Any CPU
 		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Release|iPhone.Build.0 = Release|Any CPU
 		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{A12987FB-B625-4502-9D11-89F5A29F7E51}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{B44B8C61-31FB-4598-86F0-DDA8A18F2993}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
 		{B44B8C61-31FB-4598-86F0-DDA8A18F2993}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
 		{B44B8C61-31FB-4598-86F0-DDA8A18F2993}.AppStore|iPhone.ActiveCfg = Release|Any CPU
@@ -60,13 +56,9 @@ Global
 		{BD5211E4-6E61-413D-A872-681DAF322379}.AppStore|iPhone.ActiveCfg = Release|Any CPU
 		{BD5211E4-6E61-413D-A872-681DAF322379}.AppStore|iPhone.Build.0 = Release|Any CPU
 		{BD5211E4-6E61-413D-A872-681DAF322379}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{BD5211E4-6E61-413D-A872-681DAF322379}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{BD5211E4-6E61-413D-A872-681DAF322379}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{BD5211E4-6E61-413D-A872-681DAF322379}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{BD5211E4-6E61-413D-A872-681DAF322379}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{BD5211E4-6E61-413D-A872-681DAF322379}.Release|iPhone.Build.0 = Release|Any CPU
 		{BD5211E4-6E61-413D-A872-681DAF322379}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{BD5211E4-6E61-413D-A872-681DAF322379}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Starter-iOS\Starter-iOS.csproj
