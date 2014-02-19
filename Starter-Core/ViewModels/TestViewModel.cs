@@ -13,9 +13,17 @@ namespace Starter.Core.ViewModels
             set { this.RaiseAndSetIfChanged(ref _TheGuid, value); }
         }
 
+        string _myName;
+        [DataMember] public string MyName {
+            get { return _myName; }
+            set { this.RaiseAndSetIfChanged(ref _myName, value); }
+        }
+
         public TestViewModel()
         {
             TheGuid = Guid.NewGuid().ToString();
+            
+            this.MyName = "Enter your name";
         }
     }
 }

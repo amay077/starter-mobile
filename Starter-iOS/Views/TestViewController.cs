@@ -35,6 +35,9 @@ namespace Starter.Views
             base.ViewDidLoad();
             this.OneWayBind(ViewModel, x => x.TheGuid, x => x.TheGuid.Text);
 
+            this.Bind(ViewModel, vm=> vm.MyName, v => v.MyText.Text);
+            this.OneWayBind(ViewModel, x => x.MyName, x => x.MyLabel.Text);
+
             ViewModel = await BlobCache.LocalMachine.GetOrCreateObject("TestViewModel", () => {
                 return new TestViewModel();
             });

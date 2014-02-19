@@ -13,6 +13,12 @@ namespace Starter.Views
 	partial class TestViewController
 	{
 		[Outlet]
+		MonoTouch.UIKit.UILabel MyLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UITextField MyText { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel TheGuid { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -20,6 +26,16 @@ namespace Starter.Views
 			if (TheGuid != null) {
 				TheGuid.Dispose ();
 				TheGuid = null;
+			}
+
+			if (MyText != null) {
+				MyText.Dispose ();
+				MyText = null;
+			}
+
+			if (MyLabel != null) {
+				MyLabel.Dispose ();
+				MyLabel = null;
 			}
 		}
 	}
