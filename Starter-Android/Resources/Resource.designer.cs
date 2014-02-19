@@ -26,7 +26,7 @@ namespace Starter
 		
 		public static void UpdateIdValues()
 		{
-			Starter.Core.Resource.String.library_name = Starter.Resource.String.library_name;
+			global::Starter.Core.Resource.String.library_name = global::Starter.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
