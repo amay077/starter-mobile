@@ -4,17 +4,16 @@ using System.Runtime.Serialization;
 
 namespace Starter.Core.ViewModels
 {
-    [DataContract]
     public class TestViewModel : ReactiveObject
     {
         string _TheGuid;
-        [DataMember] public string TheGuid {
+        public string TheGuid {
             get { return _TheGuid; }
             set { this.RaiseAndSetIfChanged(ref _TheGuid, value); }
         }
 
         string _myName;
-        [DataMember] public string MyName {
+        public string MyName {
             get { return _myName; }
             set { this.RaiseAndSetIfChanged(ref _myName, value); }
         }

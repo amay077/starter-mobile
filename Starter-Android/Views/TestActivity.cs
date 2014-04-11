@@ -8,7 +8,6 @@ using Android.OS;
 using ReactiveUI.Android;
 using ReactiveUI;
 using Starter.Core.ViewModels;
-using Akavache;
 
 namespace Starter.Views
 {
@@ -17,10 +16,9 @@ namespace Starter.Views
     {
         int count = 1;
 
-        protected override async void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            BlobCache.ApplicationName = "Starter";
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
@@ -34,13 +32,15 @@ namespace Starter.Views
                 button.Text = string.Format("{0} clicks!", count++);
             };
 
-            TheGuid = FindViewById<TextView>(Resource.Id.TheGuid);
+            this.TheGuidLabel = FindViewById<TextView>(Resource.Id.TheGuid);
+            this.MyNameText = FindViewById<EditText>(Resource.Id.editMyName);
+            this.MyNameLabel = FindViewById<TextView>(Resource.Id.labelMyName);
 
-            this.OneWayBind(ViewModel, x => x.TheGuid, x => x.TheGuid.Text);
+            this.OneWayBind(ViewModel, vm => vm.TheGuid, v => v.TheGuidLabel.Text);
+            this.Bind(this.ViewModel, vm => vm.MyName, v => v.MyNameText.Text);
+            this.OneWayBind(ViewModel, vm => vm.MyName, v => v.MyNameLabel.Text);
 
-            ViewModel = await BlobCache.LocalMachine.GetOrCreateObject("TestViewModel", () => {
-                return new TestViewModel();
-            });
+            this.ViewModel = new TestViewModel();
         }
 
         TestViewModel _ViewModel;
@@ -54,7 +54,9 @@ namespace Starter.Views
             set { ViewModel = (TestViewModel)value; }
         }
 
-        public TextView TheGuid { get; protected set; }
+        public TextView TheGuidLabel { get; protected set; }
+        public EditText MyNameText { get; protected set; }
+        public TextView MyNameLabel { get; protected set; }
     }
 }
 

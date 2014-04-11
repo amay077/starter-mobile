@@ -84,6 +84,11 @@
     <ConsolePause>false</ConsolePause>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -154,9 +159,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Starter-Core\Starter-Core-iOS.csproj">
-      <Project>{B44B8C61-31FB-4598-86F0-DDA8A18F2993}</Project>
-      <Name>Starter-Core-iOS</Name>
+    <ProjectReference Include="..\Starter-Core\Starter-Core-Pcl.csproj">
+      <Project>{B442C876-60D6-44F8-89E7-CADC19FA0A24}</Project>
+      <Name>Starter-Core-Pcl</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

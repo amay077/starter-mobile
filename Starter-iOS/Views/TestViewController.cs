@@ -30,17 +30,16 @@ namespace Starter.Views
             // Release any cached data, images, etc that aren't in use.
         }
 
-        public override async void ViewDidLoad()
+        public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             this.OneWayBind(ViewModel, x => x.TheGuid, x => x.TheGuid.Text);
 
             this.Bind(ViewModel, vm=> vm.MyName, v => v.MyText.Text);
-            this.OneWayBind(ViewModel, x => x.MyName, x => x.MyLabel.Text);
-
-            ViewModel = await BlobCache.LocalMachine.GetOrCreateObject("TestViewModel", () => {
-                return new TestViewModel();
-            });
+            this.OneWayBind(ViewModel, vm => vm.MyName, v => v.MyLabel.Text);
+            this.ObservableForProperty(vm => vm.MyText).Subscribe(Console.WriteLine);
+            
+            this.ViewModel = new TestViewModel();
         }
 
         TestViewModel _ViewModel;
