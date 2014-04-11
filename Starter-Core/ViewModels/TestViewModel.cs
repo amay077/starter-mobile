@@ -25,7 +25,15 @@ namespace Starter.Core.ViewModels
         {
             get { return _theTime.Value; }
         }
-        
+
+        bool _isAgreed;
+        public bool IsAgreed {
+            get { return _isAgreed; }
+            set { this.RaiseAndSetIfChanged(ref _isAgreed, value); }
+        }
+
+        public IReactiveCommand GotoNextCommand;
+
         public TestViewModel()
         {
             _theTime = Observable.Interval(TimeSpan.FromSeconds(1))
@@ -36,7 +44,12 @@ namespace Starter.Core.ViewModels
             
             this.MyName = "Enter your name";
             
-            var cmd = new ReactiveCommand();
+            this.GotoNextCommand = new ReactiveCommand(
+                this.ObservableForProperty(vm=>vm.IsAgreed).Select(x => x.Value));
+            this.GotoNextCommand.Subscribe(x =>
+            {
+
+            });
             
         }
     }
