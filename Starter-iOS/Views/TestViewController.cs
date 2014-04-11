@@ -7,6 +7,7 @@ using ReactiveUI;
 using Starter.Core.ViewModels;
 using Akavache;
 using System.Reactive.Linq;
+using System.Diagnostics;
 
 namespace Starter.Views
 {
@@ -33,19 +34,22 @@ namespace Starter.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            this.OneWayBind(ViewModel, x => x.TheGuid, x => x.TheGuid.Text);
+            this.OneWayBind(this.ViewModel, vm => vm.TheTime, v => v.TheGuid.Text, x => x.ToShortTimeString());
 
-            this.Bind(ViewModel, vm=> vm.MyName, v => v.MyText.Text);
-            this.OneWayBind(ViewModel, vm => vm.MyName, v => v.MyLabel.Text);
-            this.ObservableForProperty(vm => vm.MyText).Subscribe(Console.WriteLine);
+            this.Bind(this.ViewModel, vm=> vm.MyName, v => v.MyText.Text);
+            this.OneWayBind(this.ViewModel, vm => vm.MyName, v => v.MyLabel.Text);
+            this.ObservableForProperty(v => v.ViewModel)
+                .Select(x => x.Value)
+                .SelectMany(vm => vm.ObservableForProperty(x => x.MyName))
+                .Subscribe(x => Debug.WriteLine(x.Value));
             
             this.ViewModel = new TestViewModel();
         }
 
-        TestViewModel _ViewModel;
+        TestViewModel _viewModel;
         public TestViewModel ViewModel {
-            get { return _ViewModel; }
-            set { this.RaiseAndSetIfChanged(ref _ViewModel, value); }
+            get { return _viewModel; }
+            set { this.RaiseAndSetIfChanged(ref _viewModel, value); }
         }
 
         object IViewFor.ViewModel {

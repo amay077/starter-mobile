@@ -36,22 +36,22 @@ namespace Starter.Views
             this.MyNameText = FindViewById<EditText>(Resource.Id.editMyName);
             this.MyNameLabel = FindViewById<TextView>(Resource.Id.labelMyName);
 
-            this.OneWayBind(ViewModel, vm => vm.TheGuid, v => v.TheGuidLabel.Text);
-            this.Bind(this.ViewModel, vm => vm.MyName, v => v.MyNameText.Text);
-            this.OneWayBind(ViewModel, vm => vm.MyName, v => v.MyNameLabel.Text);
+            this.OneWayBind(TypedViewModel, vm => vm.Clock, v => v.TheGuidLabel.Text);
+            this.Bind(this.TypedViewModel, vm => vm.MyName, v => v.MyNameText.Text);
+            this.OneWayBind(TypedViewModel, vm => vm.MyName, v => v.MyNameLabel.Text);
 
-            this.ViewModel = new TestViewModel();
+            this.TypedViewModel = new TestViewModel();
         }
 
         TestViewModel _ViewModel;
-        public TestViewModel ViewModel {
+        public TestViewModel TypedViewModel {
             get { return _ViewModel; }
             set { this.RaiseAndSetIfChanged(ref _ViewModel, value); }
         }
 
-        object IViewFor.ViewModel {
-            get { return ViewModel; }
-            set { ViewModel = (TestViewModel)value; }
+        object IViewFor.TypedViewModel {
+            get { return TypedViewModel; }
+            set { TypedViewModel = (TestViewModel)value; }
         }
 
         public TextView TheGuidLabel { get; protected set; }
