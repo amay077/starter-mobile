@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Starter.Views;
 using ReactiveUI;
+using StarterCorePcl;
 
 namespace Starter
 {
@@ -38,6 +39,7 @@ namespace Starter
             (new Akavache.Registrations()).Register(r.Register);
             (new Akavache.Mobile.Registrations()).Register(r.Register);
             (new Akavache.Sqlite3.Registrations()).Register(r.Register);
+            r.Register(() => new MyTouchService(), typeof(IMyService));
 
             window = new UIWindow(UIScreen.MainScreen.Bounds);
 

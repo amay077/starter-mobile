@@ -3,6 +3,7 @@ using ReactiveUI;
 using System.Runtime.Serialization;
 using System.Reactive.Linq;
 using System.Diagnostics;
+using StarterCorePcl;
 
 namespace Starter.Core.ViewModels
 {
@@ -43,6 +44,9 @@ namespace Starter.Core.ViewModels
 //            this.Clock = Guid.NewGuid().ToString();
             
             this.MyName = "Enter your name";
+
+            var calclator = RxApp.MutableResolver.GetService<IMyService>();
+            var result = calclator.Calc(1, 2);
             
             this.GotoNextCommand = new ReactiveCommand(
                 this.ObservableForProperty(vm=>vm.IsAgreed).Select(x => x.Value));
