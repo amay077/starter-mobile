@@ -43,6 +43,14 @@ namespace Starter.Views
                 .SelectMany(vm => vm.ObservableForProperty(x => x.MyName))
                 .Subscribe(x => Debug.WriteLine(x.Value));
             
+            this.MyButton.TouchUpInside += (s, e) => 
+            {
+                var v = new SecondViewController();
+                this.NavigationController.PushViewController(v, true);
+            };
+            
+//            this.BindCommand(this.ViewModel, vm => vm.GotoNextCommand, v => v.MyButton);
+            
             this.ViewModel = new TestViewModel();
         }
 

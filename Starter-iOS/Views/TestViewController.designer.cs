@@ -13,6 +13,9 @@ namespace Starter.Views
 	partial class TestViewController
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton MyButton { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel MyLabel { get; set; }
 
 		[Outlet]
@@ -23,9 +26,9 @@ namespace Starter.Views
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TheGuid != null) {
-				TheGuid.Dispose ();
-				TheGuid = null;
+			if (MyLabel != null) {
+				MyLabel.Dispose ();
+				MyLabel = null;
 			}
 
 			if (MyText != null) {
@@ -33,9 +36,14 @@ namespace Starter.Views
 				MyText = null;
 			}
 
-			if (MyLabel != null) {
-				MyLabel.Dispose ();
-				MyLabel = null;
+			if (TheGuid != null) {
+				TheGuid.Dispose ();
+				TheGuid = null;
+			}
+
+			if (MyButton != null) {
+				MyButton.Dispose ();
+				MyButton = null;
 			}
 		}
 	}

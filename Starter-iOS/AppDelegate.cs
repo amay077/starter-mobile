@@ -17,7 +17,7 @@ namespace Starter
     {
         // class-level declarations
         UIWindow window;
-        TestViewController viewController;
+        MenuViewController viewController;
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -39,12 +39,16 @@ namespace Starter
             (new Akavache.Registrations()).Register(r.Register);
             (new Akavache.Mobile.Registrations()).Register(r.Register);
             (new Akavache.Sqlite3.Registrations()).Register(r.Register);
+            
             r.Register(() => new MyTouchService(), typeof(IMyService));
+            r.RegisterLazySingleton(() => new MyTouchService(), typeof(IMyService));
 
             window = new UIWindow(UIScreen.MainScreen.Bounds);
+            
+            viewController = new MenuViewController();
+            var navCon = new UINavigationController(viewController);
 
-            viewController = new TestViewController();
-            window.RootViewController = viewController;
+            window.RootViewController = navCon;
             window.MakeKeyAndVisible();
             
             return true;

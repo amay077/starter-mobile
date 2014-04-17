@@ -143,9 +143,6 @@
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info.plist" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Views\TestViewController.cs" />
@@ -153,10 +150,22 @@
       <DependentUpon>TestViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="MyTouchService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Views\TestViewController_iPhone.xib" />
-    <InterfaceDefinition Include="Views\TestViewController_iPad.xib" />
+    <Compile Include="Views\SecondViewController.cs" />
+    <Compile Include="Views\SecondViewController.designer.cs">
+      <DependentUpon>SecondViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuViewController.cs" />
+    <Compile Include="Views\MenuViewController.designer.cs">
+      <DependentUpon>MenuViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FourthViewController.cs" />
+    <Compile Include="Views\FourthViewController.designer.cs">
+      <DependentUpon>FourthViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FifthViewController.cs" />
+    <Compile Include="Views\FifthViewController.designer.cs">
+      <DependentUpon>FifthViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -164,5 +173,25 @@
       <Project>{B442C876-60D6-44F8-89E7-CADC19FA0A24}</Project>
       <Name>Starter-Core-Pcl</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <BundleResource Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Views\MenuViewController.xib" />
+    <InterfaceDefinition Include="Views\SecondViewController.xib" />
+    <InterfaceDefinition Include="Views\TestViewController_iPad.xib" />
+    <InterfaceDefinition Include="Views\TestViewController_iPhone.xib" />
+    <InterfaceDefinition Include="Views\FourthViewController.xib" />
+    <InterfaceDefinition Include="Views\FifthViewController.xib" />
   </ItemGroup>
 </Project>

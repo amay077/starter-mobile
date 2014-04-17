@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using System.Reactive.Linq;
 using System.Diagnostics;
 using StarterCorePcl;
+using System.Windows.Input;
 
 namespace Starter.Core.ViewModels
 {
@@ -33,7 +34,11 @@ namespace Starter.Core.ViewModels
             set { this.RaiseAndSetIfChanged(ref _isAgreed, value); }
         }
 
-        public IReactiveCommand GotoNextCommand;
+        public ICommand GotoNextCommand 
+        {
+            get;
+            private set;
+        }
 
         public TestViewModel()
         {
@@ -42,18 +47,28 @@ namespace Starter.Core.ViewModels
                 .ToProperty(this, vm => vm.TheTime);
             
 //            this.Clock = Guid.NewGuid().ToString();
+            var isAgreed = this.ObservableForProperty(vm => vm.IsAgreed).Select(x => x.Value).ToCommand();
             
             this.MyName = "Enter your name";
 
             var calclator = RxApp.MutableResolver.GetService<IMyService>();
+            var calclator2 = RxApp.MutableResolver.GetService<IMyService>();
+            
+            var isSame = Object.ReferenceEquals(calclator, calclator2);
+            
             var result = calclator.Calc(1, 2);
             
-            this.GotoNextCommand = new ReactiveCommand(
-                this.ObservableForProperty(vm=>vm.IsAgreed).Select(x => x.Value));
-            this.GotoNextCommand.Subscribe(x =>
+            
+            IObservable<bool> canExec = this.ObservableForProperty(vm=>vm.IsAgreed).Select(x => x.Value);
+            var cmd = this.WhenAny(vm => vm.TheTime, x => x.Value.Second % 2 == 0).ToCommand();
+            
+//            var cmd = new ReactiveCommand();
+//            cmd.CanExecute
+            cmd.Subscribe(x =>
             {
-
+                Debug.WriteLine("command executed.");    
             });
+            this.GotoNextCommand = cmd;
             
         }
     }
